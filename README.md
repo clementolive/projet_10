@@ -1,4 +1,10 @@
+
 # BobApp
+
+## Badges
+[![BobApp Workflow](https://github.com/achmoye/Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD/actions/workflows/bobapp-workflow.yml/badge.svg)](https://github.com/achmoye/Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD/actions/workflows/bobapp-workflow.yml)
+
+[![SonarQube](https://github.com/achmoye/Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD/actions/workflows/SonarQube.yml/badge.svg)](https://github.com/achmoye/Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD/actions/workflows/SonarQube.yml)
 
 Clone project:
 
