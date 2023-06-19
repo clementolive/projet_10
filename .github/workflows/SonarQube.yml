@@ -7,7 +7,7 @@ on:
       - main
  push:
     branches:
-      - achmoye-patch-1
+      - main 
 jobs:
   sonarqube-build-front:
     timeout-minutes: 10
