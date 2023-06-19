@@ -2,9 +2,11 @@ name: BobApp Workflow
 run-name: ${{ github.actor }} is using Bobapp Workflow
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: 
+      - main 
   push: 
-    branches: [ "achmoye-patch-1" ]
+    branches: 
+      - main 
     
 jobs: 
 
