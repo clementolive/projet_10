@@ -9,9 +9,28 @@ on:
     branches:
       - achmoye-patch-1
 jobs:
-  sonarqube-build:
+  sonarqube-build-front:
     timeout-minutes: 10
-    name: Build
+    name: sonarqube-build-front
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'front'
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+
+  sonarqube-build-back:
+    timeout-minutes: 10
+    name: sonarqube-build-back
     runs-on: ubuntu-latest
     defaults:
       run:
