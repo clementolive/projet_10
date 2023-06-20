@@ -25,6 +25,10 @@ jobs:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
        with:
         projectBaseDir: front/src
+        # See https://github.com/SonarSource/sonarcloud-github-action
+        args: >
+         -Dsonar.organization='achmoye"
+         -Dsonar.projectKey='achmoye_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD'
 
   sonarcloud-back:
     timeout-minutes: 10
