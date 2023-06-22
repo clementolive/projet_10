@@ -27,8 +27,9 @@ jobs:
        with:
         args: > 
            -X
+           -Dsonar.verbose=true
        env:
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONTEND }}
          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
          
          
