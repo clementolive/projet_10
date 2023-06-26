@@ -13,9 +13,7 @@ jobs:
   sonarqube-front:
     name: Angular CI
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: 'front'
+
 
     steps:
     - uses: actions/checkout@v3
@@ -43,6 +41,9 @@ jobs:
     timeout-minutes: 10
     name: sonarqube-build-back
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'back'
     steps:
       - uses: actions/checkout@v2
         with:
