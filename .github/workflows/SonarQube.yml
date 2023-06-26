@@ -11,23 +11,30 @@ on:
 jobs:
 
   sonarqube-front:
-     timeout-minutes: 10
-     runs-on: ubuntu-latest
+    name: Angular CI
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'front'
 
-     steps:
-     - uses: actions/checkout@v3
-       with:
-         # Disabling shallow clone is recommended for improving relevancy of reporting
-         fetch-depth: 0
-     - name: SonarQube Scan
-       uses: sonarsource/sonarqube-scan-action@master
-       with:
-        args: > 
-           -X
-           -Dsonar.verbose=true
-       env:
-         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONTEND }}
-         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+    - name: Install packages    
+      run: npm ci
+    - name: Build package
+      run: npm run build --if-present
+    - name: Run Test
+      run: npm test -- --watch=false --browsers=ChromeHeadless
+    - uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      with:
+        projectBaseDir: front
          
          
      
@@ -36,9 +43,6 @@ jobs:
     timeout-minutes: 10
     name: sonarqube-build-back
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: 'back'
     steps:
       - uses: actions/checkout@v2
         with:
