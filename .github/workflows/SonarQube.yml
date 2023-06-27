@@ -36,15 +36,12 @@ jobs:
         -Dsonar.verbose=true
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_HOST_URL: http://localhost:9000
 
   sonarqube-back:
     timeout-minutes: 10
     name: sonarqube-build-back
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: 'back'
     steps:
       - uses: actions/checkout@v2
         with:
