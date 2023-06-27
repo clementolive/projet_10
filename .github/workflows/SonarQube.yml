@@ -36,7 +36,7 @@ jobs:
         -Dsonar.verbose=true
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
-        SONAR_HOST_URL: http://90.89.160.61:9000
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
   sonarqube-back:
     timeout-minutes: 10
