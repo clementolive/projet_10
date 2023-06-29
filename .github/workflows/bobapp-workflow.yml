@@ -32,7 +32,7 @@ jobs:
       - name: Upload reports
         uses: actions/upload-artifact@v2
         with:
-          name: Test Reports
+          name: Frontend-coverage-report
           path: front/coverage/
         
         
@@ -82,7 +82,7 @@ jobs:
       - name: Upload JaCoCo report
         uses: actions/upload-artifact@v2
         with:
-          name: coverage-report
+          name: Backend-jacoco-report
           path: back/target/site/jacoco
           
           
